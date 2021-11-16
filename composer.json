@@ -1,0 +1,19 @@
+{
+    "name": "edupellaux/demophp",
+    "description": "Application de démonstration d'une application PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DemoPHP\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alain Pellaux",
+            "email": "edu-pellauxa@eduge.ch"
+        }
+    ],
+    "require": {
+        "pecee/simple-router": "4.3.7.2"
+    }
+}
