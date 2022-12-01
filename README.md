@@ -30,3 +30,75 @@ Vous pouvez maintenant naviguer sur les 2 urls du projet:
 Ce projet utilise une unique dépendance, un router PHP nommé [simple-php-router](https://github.com/skipperbent/simple-php-router) qui s'occupe de gérer le routing.
 
 Le projet original n'ayant plus l'air maintenu, ce squelette se base sur le fork réalisé par [DeveloperMarius](https://github.com/DeveloperMarius/simple-php-router), qui est compatible avec PHP 8.1.
+
+## Lancer le serveur
+
+Le projet peut être testé de 2 manières : avec le serveur web integré à PHP, ou avec Apache2
+
+### Serveur web integré
+
+Pour lancer le serveur web integré à PHP, placez-vous à la racine du projet puis :
+
+```
+cd public # Se déplacer dans le dossier public du projet
+php -S localhost:8080 # Démarrez le serveur, le site est accessible depuis http://localhost:8080
+```
+
+### Apache2
+
+Pour tester le projet depuis Apache2, il faut d'abord activer le module mod_rewrite d'Apache :
+
+```
+sudo a2enmod rewrite
+sudo service apache2 restart
+```
+
+Il faut ensuite créer un nouveau vhost dans Apache2 :
+
+```
+sudo touch /etc/apache2/sites-available/demophp.cfpt.conf
+```
+
+Copiez ensuite le contenu ci-dessous dans le fichier nouvellement créé :
+
+```
+<VirtualHost *:80>
+	ServerName demophp.cfpt.loc
+
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/html/demophp/public
+
+	<Directory /var/www/html/demophp/public>
+	    Options -Indexes +FollowSymLinks
+	    AllowOverride All
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/demophp.cfpt.loc-error.log
+	CustomLog ${APACHE_LOG_DIR}/demophp.cfpt.loc-access.log combined
+</VirtualHost>
+```
+
+Veillez à adapter le nom du fichier (ici demophp.cfpt.conf) de l'url du site (ici demophp.cfpt.loc) et du chemin vers le projet (ici /var/www/html/demophp/public) à vos besoins !
+
+Vérifiez que vous n'avez pas d'erreur de syntaxe :
+
+```
+sudo apache2ctl -t
+```
+
+Avant d'activer le vhost :
+
+```
+sudo a2ensite demophp.cfpt.conf
+sudo service apache2 restart
+```
+
+Le vhost est maintenant activé, il reste à rendre disponible l'url depuis Windows :
+
+1. ouvrez le bloc notes **en mode administrateur** ;
+2. ouvrez le fichier ```C:\Windows\System32\drivers\etc\hosts``` (le fichier n'a pas d'extension) ;
+3. copiez les 2 lignes suivantes, en prenant soin de faire correspondre l'url avec celle de votre vhost :
+	127.0.0.1       demophp.cfpt.loc
+	::1             demophp.cfpt.loc
+
+Votre site est maintenant accessible.
