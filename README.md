@@ -1,6 +1,6 @@
 # Projet de démonstration
 
-Ce projet est une coquille vide destinée aux élève de l'école entreprise. Son but est de montrer comment créer une structure de projet PHP professionnelle.
+Ce projet est une coquille vide destinée aux élève du CFPT informatique. Son but est de montrer comment créer une structure de projet PHP professionnelle, utilisant composer.
 
 Il se compose des éléments suivants:
 
@@ -23,8 +23,10 @@ Les dépendances du projet sont installées et vous verrez apparaitre un dossier
 
 Vous pouvez maintenant naviguer sur les 2 urls du projet:
 - ``` / ```: la page d'accueil
-- ``` /test/show ```: une page de test, il est possible d'ajouter un paramètre à cette url, essayez par exemple ``` /test/show/votre_nom ```
+- ``` /test/show ```: une page de test, il est possible d'ajouter un paramètre à cette url, essayez par exemple ``` /test/show/{votre nom} ```
 
 ## Dépendance
 
 Ce projet utilise une unique dépendance, un router PHP nommé [simple-php-router](https://github.com/skipperbent/simple-php-router) qui s'occupe de gérer le routing.
+
+Le projet original n'ayant plus l'air maintenu, ce squelette se base sur le fork réalisé par [DeveloperMarius](https://github.com/DeveloperMarius/simple-php-router), qui est compatible avec PHP 8.1.
