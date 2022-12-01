@@ -98,7 +98,8 @@ Le vhost est maintenant activé, il reste à rendre disponible l'url depuis Wind
 1. ouvrez le bloc notes **en mode administrateur** ;
 2. ouvrez le fichier ```C:\Windows\System32\drivers\etc\hosts``` (le fichier n'a pas d'extension) ;
 3. copiez les 2 lignes suivantes, en prenant soin de faire correspondre l'url avec celle de votre vhost :
-	127.0.0.1       demophp.cfpt.loc
-	::1             demophp.cfpt.loc
-
+```
+127.0.0.1       demophp.cfpt.loc
+::1             demophp.cfpt.loc
+```
 Votre site est maintenant accessible.
